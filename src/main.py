@@ -1,18 +1,15 @@
-from src.agent import get_response
+from src.agent import collect_task, format_task
 
 
 def main() -> None:
-    name = input("Введите ваше имя: ").strip()
+    print("Вітаю! Я помічник Project Manager.")
+    print("Допоможу оформити нову задачу.")
 
-    if not name:
-        name = "друг"
+    task = collect_task()
+    task_card = format_task(task)
 
-    print(f"\nПривет, {name}! Добро пожаловать в AI Agent Test.")
-
-    question = input("Введите ваш вопрос или задачу: ")
-    response = get_response(question)
-
-    print(f"\nОтвет агента: {response}")
+    print(task_card)
+    print("Задачу сформовано. У наступній версії збережемо її в Notion.")
 
 
 if __name__ == "__main__":
